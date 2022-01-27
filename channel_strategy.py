@@ -1,3 +1,4 @@
+'''
 //bollinger bands
 
 //@version=4
@@ -18,8 +19,9 @@ plot(down, color=color.red, linewidth=3)
 
 //突破上轨做多，跌破下轨做空
 //可结合中间MA平仓
+'''
 
-
+'''
 //keltner channel
 
 //@version=4
@@ -43,8 +45,9 @@ plot(sma_value, color=color.red, linewidth=3)
 plot(keltner_down, color=color.green, linewidth=3)
 
 //突破上轨则做多，跌破上轨则平仓
+'''
 
-
+'''
 //highest & lowest
 
 //@version=4
@@ -57,3 +60,4 @@ lowest_value = lowest(low,length)
 
 plot(highest_value,color=color.red,linewidth=2)
 plot(lowest_value,color=color.red,linewidth=2)
+'''
