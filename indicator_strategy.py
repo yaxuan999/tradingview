@@ -1,5 +1,5 @@
 ######MA######
-
+'''
 //@version=4
 study("yaxuan_test1",shorttitle='sma',overlay=true)
 sma_period=input(defval=30,title='sma_period',minval=10,type=input.integer)
@@ -16,7 +16,9 @@ plot(sma_down,linewidth=1,color=color.red)
 
 #可以跌破下均线则做空，突破上均线则做多
 #也可以用中均线添加平仓方式
+'''
 
+'''
 //@version=4
 study("yaxuan_test2", shorttitle="sma", overlay=true)
 
@@ -35,4 +37,4 @@ plot(sma_long_sma_value, color=color.green, linewidth=3)
 
 #双均线金叉&死叉，在bitcoin感觉不适用
 
-
+'''
