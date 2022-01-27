@@ -1,0 +1,59 @@
+//bollinger bands
+
+//@version=4
+study("yaxuan_test3",shorttitle="channel", overlay=true)
+
+period = input(defval=20, minval=5, title="period")
+dev =  input(defval=2.0, minval=1.0, title="dev")
+
+sma_value = sma(hlc3, period)
+std_value = stdev(hlc3, period)
+
+up = sma_value + dev * std_value
+down = sma_value - dev * std_value
+
+plot(up, color=color.red, linewidth=3)
+plot(sma_value, color=color.green, linewidth=3)
+plot(down, color=color.red, linewidth=3)
+
+//突破上轨做多，跌破下轨做空
+//可结合中间MA平仓
+
+
+//keltner channel
+
+//@version=4
+study("yaxuan_test4_keltner",shorttitle="keltner_channel", overlay=true)
+period = input(defval=30, minval=10, title="period")
+atr_dev = input(defval=3, minval=1, title="atr_dev")
+
+sma_value = sma(close, period)
+
+
+tr_value1 = max(high - low, abs(high - close[1])) //max 只能比较两个
+tr_value = max(abs(low - close[1]), tr_value1)
+
+atr_value  = sma(tr_value, period)
+
+keltner_up = sma_value + atr_dev * atr_value
+keltner_down = sma_value - atr_dev * atr_value
+
+plot(keltner_up, color=color.green, linewidth=3)
+plot(sma_value, color=color.red, linewidth=3)
+plot(keltner_down, color=color.green, linewidth=3)
+
+//突破上轨则做多，跌破上轨则平仓
+
+
+//highest & lowest
+
+//@version=4
+study("yaxuan_highest_lowest",shorttitle='highest_lowest',overlay=true)
+
+length = input(defval=30,title='length',minval=10)
+
+highest_value = highest(high,length)
+lowest_value = lowest(low,length)
+
+plot(highest_value,color=color.red,linewidth=2)
+plot(lowest_value,color=color.red,linewidth=2)
